@@ -1,8 +1,14 @@
 from .exceptions import FyleError
+from marshmallow.exceptions import ValidationError
 
 
 def base_assert(error_code, msg):
     raise FyleError(status_code=error_code, message=msg)
+
+
+def validation_assert(cond, msg='BAD_REQUEST'):
+    if cond is False:
+        raise ValidationError(message=msg)
 
 
 def assert_auth(cond, msg='UNAUTHORIZED'):
