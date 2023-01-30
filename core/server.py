@@ -1,14 +1,15 @@
 from flask import jsonify
 from marshmallow.exceptions import ValidationError
-from core import app
-from core.apis.assignments import student_assignments_resources
-from core.libs import helpers
-from core.libs.exceptions import FyleError
+from . import app
+from .apis.assignments import student_assignments_resources, teacher_assignments_resources
+from .libs import helpers
+from .libs.exceptions import FyleError
 from werkzeug.exceptions import HTTPException
 
 from sqlalchemy.exc import IntegrityError
 
 app.register_blueprint(student_assignments_resources, url_prefix='/student')
+app.register_blueprint(teacher_assignments_resources, url_prefix='/teacher')
 
 
 @app.route('/')
