@@ -29,7 +29,7 @@ You will hear back within 48 hours from us via email.
 ### Install requirements
 
 ```
-virtualenv env --python=python3.8
+virtualenv -p /usr/bin/python3 env
 source env/bin/activate
 pip install -r requirements.txt
 ```
